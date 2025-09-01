@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Heart, ArrowUp } from "lucide-react";
+import { Heart, ArrowUp, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -8,6 +9,14 @@ const Footer = () => {
   };
 
   const currentYear = new Date().getFullYear();
+  
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/johndoe", label: "GitHub" },
+    { icon: Linkedin, href: "https://linkedin.com/in/johndoe", label: "LinkedIn" },
+    { icon: ExternalLink, href: "https://fiverr.com/johndoe", label: "Fiverr" },
+    { icon: ExternalLink, href: "https://upwork.com/freelancers/johndoe", label: "Upwork" },
+    { icon: Mail, href: "mailto:john.doe@example.com", label: "Email" },
+  ];
 
   return (
     <footer className="bg-card border-t border-border">
@@ -39,9 +48,9 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center"
           >
-            <h3 className="text-2xl font-bold text-gradient mb-2">Alex Johnson</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-2">John Doe</h3>
             <p className="text-muted-foreground">
-              Full Stack Developer & UI/UX Enthusiast
+              Full Stack Developer & ML Engineer
             </p>
           </motion.div>
 
@@ -54,28 +63,49 @@ const Footer = () => {
             className="flex flex-wrap justify-center gap-6 text-sm"
           >
             {[
-              { name: "Home", href: "#home" },
-              { name: "About", href: "#about" },
-              { name: "Projects", href: "#projects" },
-              { name: "Skills", href: "#skills" },
-              { name: "Experience", href: "#experience" },
-              { name: "Contact", href: "#contact" }
+              { name: "Home", href: "/" },
+              { name: "About", href: "/about" },
+              { name: "Experience", href: "/experience" },
+              { name: "Projects", href: "/projects" },
+              { name: "Contact", href: "/contact" }
             ].map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={() => {
-                  const element = document.querySelector(item.href);
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                to={item.href}
                 className="text-muted-foreground hover:text-foreground transition-smooth relative group"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
-              </button>
+              </Link>
             ))}
           </motion.nav>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="flex justify-center gap-4"
+          >
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
+                whileHover={{ scale: 1.1 }}
+                className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-muted-foreground hover:text-primary transition-smooth"
+                aria-label={link.label}
+              >
+                <link.icon className="w-5 h-5" />
+              </motion.a>
+            ))}
+          </motion.div>
 
           {/* Divider */}
           <motion.div
@@ -95,7 +125,7 @@ const Footer = () => {
             className="text-center space-y-2"
           >
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-              © {currentYear} Alex Johnson. Made with
+              © {currentYear} John Doe. Made with
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
