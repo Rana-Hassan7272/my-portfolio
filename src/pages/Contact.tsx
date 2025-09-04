@@ -129,7 +129,7 @@ const Contact = () => {
 
                   <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-primary" />
+                      <img src="/fiverr.jpg" alt="Fiverr" className="w-6 h-6 object-contain" />
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-foreground">Fiverr</p>
@@ -147,7 +147,7 @@ const Contact = () => {
 
                   <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-primary" />
+                      <img src="/upwork.svg" alt="Upwork" className="w-6 h-6 object-contain" />
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-foreground">Upwork</p>
@@ -174,7 +174,7 @@ const Contact = () => {
                       className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center transition-smooth hover:bg-primary/10 hover:text-primary"
                     >
                       <img 
-                        src="/fiverr.png" 
+                        src="/fiverr.jpg" 
                         alt="Fiverr" 
                         className="w-6 h-6 object-contain" 
                       />

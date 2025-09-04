@@ -13,7 +13,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/Rana-Hassan7272", label: "GitHub", type: "icon" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/muhammad-hassan-shahbaz-61b524311/", label: "LinkedIn", type: "icon" },
-    { icon: null, href: "https://www.fiverr.com/users/hassan1830", label: "Fiverr", type: "image", imageSrc: "/fiverr.png" },
+    { icon: null, href: "https://www.fiverr.com/users/hassan1830", label: "Fiverr", type: "image", imageSrc: "/fiverr.jpg" },
     { icon: null, href: "https://www.upwork.com/freelancers/~01f343f7ce02f99150", label: "Upwork", type: "image", imageSrc: "/upwork.svg" },
     { icon: Mail, href: "mailto:john.doe@example.com", label: "Email", type: "icon" },
   ];

@@ -80,7 +80,7 @@ const Home = () => {
                   className="btn-outline gap-2"
                   onClick={() => window.open('https://www.fiverr.com/users/hassan1830', '_blank')}
                 >
-                  <img src="/fiverr.png" alt="Fiverr" className="w-6 h-6" />
+                  <img src="/fiverr.jpg" alt="Fiverr" className="w-6 h-6" />
                   Fiverr
                 </Button>
                 <Button 

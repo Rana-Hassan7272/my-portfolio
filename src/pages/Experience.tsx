@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Building, Star } from "lucide-react";
 import { experience } from "@/data/experience";
+import CertificatesSection from "@/components/sections/CertificatesSection";
 
 const Experience = () => {
   return (
@@ -117,6 +118,9 @@ const Experience = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Certificates Section */}
+          <CertificatesSection />
 
           {/* Experience Summary */}
           <motion.div
