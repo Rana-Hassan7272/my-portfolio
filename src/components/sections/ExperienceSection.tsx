@@ -157,7 +157,7 @@ const ExperienceSection = () => {
           
           <Card className="card-gradient border-border/50 text-center">
             <CardContent className="p-6">
-              <div className="text-3xl font-bold text-accent mb-2">50+</div>
+              <div className="text-3xl font-bold text-accent mb-2">100+</div>
               <div className="text-sm text-muted-foreground">Projects Completed</div>
             </CardContent>
           </Card>

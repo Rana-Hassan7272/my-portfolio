@@ -18,32 +18,28 @@ const ContactSection = () => {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/alexjohnson",
+      url: "https://github.com/Rana-Hassan7272",
       color: "hover:text-foreground"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/alexjohnson",
-      color: "hover:text-blue-500"
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      url: "mailto:alex@example.com",
+      url: "https://www.linkedin.com/in/muhammad-hassan-shahbaz-61b524311/",
       color: "hover:text-primary"
     },
     {
       name: "Fiverr",
-      icon: ExternalLink,
-      url: "https://fiverr.com/alexjohnson",
-      color: "hover:text-green-500"
+      icon: null,
+      url: "https://www.fiverr.com/users/hassan1830",
+      color: "hover:text-secondary",
+      imageSrc: "/fiverr.png"
     },
     {
       name: "Upwork",
-      icon: ExternalLink,
-      url: "https://upwork.com/freelancers/alexjohnson",
-      color: "hover:text-blue-600"
+      icon: null,
+      url: "https://www.upwork.com/freelancers/~01f343f7ce02f99150",
+      color: "hover:text-secondary",
+      imageSrc: "/upwork.svg"
     }
   ];
 
@@ -147,7 +143,15 @@ const ContactSection = () => {
                     whileHover={{ scale: 1.1, y: -2 }}
                     className={`w-12 h-12 bg-muted/50 rounded-lg flex items-center justify-center text-muted-foreground transition-spring ${social.color} hover:shadow-medium`}
                   >
-                    <social.icon className="h-5 w-5" />
+                    {social.icon ? (
+                      <social.icon className="h-5 w-5" />
+                    ) : (
+                      <img
+                        src={social.imageSrc}
+                        alt={social.name}
+                        className="h-5 w-5 object-contain"
+                      />
+                    )}
                   </motion.a>
                 ))}
               </div>

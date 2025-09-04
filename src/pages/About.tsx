@@ -31,36 +31,54 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="lg:col-span-1"
             >
-              <Card className="card-gradient shadow-medium">
-                <CardContent className="p-6">
-                  <div className="relative mb-6">
-                    <div className="w-full aspect-square rounded-lg overflow-hidden">
-                      <img
-                        src={aboutData.image}
-                        alt="Profile"
-                        className="w-full h-full object-cover"
-                      />
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02,
+                  rotateY: 2,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <Card className="bg-card shadow-medium border border-border/50 overflow-hidden">
+                  <CardContent className="p-6">
+                    <motion.div 
+                      className="relative mb-6"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-full aspect-square rounded-lg overflow-hidden">
+                        <img
+                          src={aboutData.image}
+                          alt="Profile"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </motion.div>
+                    
+                    <h3 className="text-xl font-semibold mb-4">Highlights</h3>
+                    <div className="space-y-3">
+                      {aboutData.highlights.map((highlight, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                          whileHover={{ x: 5, scale: 1.02 }}
+                          className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                        >
+                          <motion.div
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.5 }}
+                          >
+                            <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                          </motion.div>
+                          <span className="text-sm text-muted-foreground">{highlight}</span>
+                        </motion.div>
+                      ))}
                     </div>
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-tr from-primary/10 to-accent/10"></div>
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold mb-4">Highlights</h3>
-                  <div className="space-y-3">
-                    {aboutData.highlights.map((highlight, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                        className="flex items-center gap-3"
-                      >
-                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{highlight}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </motion.div>
 
             {/* About Content */}
@@ -76,12 +94,22 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -5,
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <Card className="card-gradient shadow-medium">
+                  <Card className="bg-card shadow-medium border border-border/50 overflow-hidden">
                     <CardContent className="p-6">
-                      <p className="text-muted-foreground leading-relaxed text-lg">
+                      <motion.p 
+                        className="text-muted-foreground leading-relaxed text-lg"
+                        whileHover={{ color: "hsl(var(--foreground))" }}
+                        transition={{ duration: 0.3 }}
+                      >
                         {paragraph}
-                      </p>
+                      </motion.p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -92,31 +120,45 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <Card className="card-gradient shadow-medium">
+                <Card className="bg-card shadow-medium border border-border/50 overflow-hidden">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-4">What I'm passionate about</h3>
                     <div className="flex flex-wrap gap-2">
                       {[
-                        "Clean Code",
-                        "Web Performance",
-                        "User Experience",
+                        "Artificial Intelligence",
                         "Machine Learning",
-                        "Open Source",
-                        "Tech Innovation",
+                        "AI Agents & RAG Systems",
+                        "LLM Fine-tuning",
+                        "Prompt Engineering",
+                        "Clean Code Architecture",
+                        "Open Source AI",
+                        "AI Ethics & Responsible AI",
                         "Continuous Learning",
-                        "Problem Solving"
+                        "Problem Solving",
+                        "AI Research",
+                        "Innovation"
                       ].map((interest, index) => (
                         <motion.div
                           key={interest}
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.4, delay: 0.8 + index * 0.05 }}
-                          whileHover={{ scale: 1.05 }}
+                          whileHover={{ 
+                            scale: 1.1,
+                            rotate: [0, -5, 5, 0],
+                            transition: { duration: 0.3 }
+                          }}
                         >
                           <Badge
                             variant="secondary"
-                            className="px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-smooth cursor-pointer"
+                            className="px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
                           >
                             {interest}
                           </Badge>

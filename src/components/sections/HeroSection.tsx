@@ -35,7 +35,7 @@ const HeroSection = () => {
             >
               Hi, I'm{" "}
               <span className="text-gradient">
-                Alex Johnson
+                Muhammad Hassan Shahbaz
               </span>
             </motion.h1>
             
@@ -45,10 +45,10 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Full Stack Developer & UI/UX Enthusiast
+              Full Stack AI Engineer || GenAI Expert
               <br />
               <span className="text-lg">
-                Crafting digital experiences that make a difference
+                Crafting intelligent AI solutions that make a difference
               </span>
             </motion.p>
 

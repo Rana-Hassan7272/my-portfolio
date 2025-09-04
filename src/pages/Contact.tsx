@@ -1,65 +1,38 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, Github, Linkedin, ExternalLink, MessageCircle, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, Github, Linkedin, MapPin, Phone } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { name, email, message } = formData;
-    const subject = `Portfolio Contact from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    const mailtoUrl = `mailto:john.doe@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
-  };
-
-  const socialLinks = [
+  const contactInfo = [
     {
-      name: "GitHub",
       icon: Github,
-      url: "https://github.com/johndoe",
-      color: "hover:text-foreground"
+      title: "GitHub",
+      url: "https://github.com/Rana-Hassan7272",
+      description: "Check out my projects and contributions"
     },
     {
-      name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/johndoe",
-      color: "hover:text-blue-500"
+      title: "LinkedIn",
+      url: "https://www.linkedin.com/in/muhammad-hassan-shahbaz-61b524311/",
+      description: "Connect with me professionally"
     },
     {
-      name: "Fiverr",
-      icon: ExternalLink,
-      url: "https://fiverr.com/johndoe",
-      color: "hover:text-green-500"
-    },
-    {
-      name: "Upwork",
-      icon: ExternalLink,
-      url: "https://upwork.com/freelancers/johndoe",
-      color: "hover:text-green-600"
-    },
-    {
-      name: "Email",
       icon: Mail,
-      url: "mailto:john.doe@example.com",
-      color: "hover:text-red-500"
+      title: "Email",
+      url: "mailto:ssc.shahbaz.2004@gmail.com",
+      description: "Send me a direct message"
+    },
+    {
+      icon: MapPin,
+      title: "Fiverr",
+      url: "https://www.fiverr.com/users/hassan1830",
+      description: "Hire me for freelance projects"
+    },
+    {
+      icon: Phone,
+      title: "Upwork",
+      url: "https://www.upwork.com/freelancers/~01f343f7ce02f99150",
+      description: "View my professional profile"
     }
   ];
 
@@ -77,177 +50,155 @@ const Contact = () => {
               Get In <span className="text-gradient">Touch</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? Let's work together to bring your ideas to life.
+              Let's connect and discuss your next project or opportunity.
             </p>
           </motion.div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="card-gradient shadow-medium">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <MessageCircle className="w-6 h-6 text-primary" />
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-2xl mx-auto"
+          >
+            <Card className="card-modern">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-secondary/10 p-3 rounded-lg">
+                    <Mail className="w-6 h-6 text-secondary" />
+                  </div>
+                  <h2 className="text-2xl font-bold">Let's Connect</h2>
+                </div>
+                
+                <p className="text-muted-foreground mb-8 leading-relaxed text-center">
+                  I'm always open to discussing new opportunities, interesting projects, or just having a friendly chat about technology and development. Feel free to reach out through any of the platforms below.
+                </p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-primary" />
                     </div>
-                    <h2 className="text-2xl font-bold">Send a Message</h2>
+                    <div className="flex-1">
+                      <p className="font-semibold text-foreground">Email</p>
+                      <p className="text-muted-foreground">ssc.shahbaz.2004@gmail.com</p>
+                    </div>
+                    <a 
+                      href="mailto:ssc.shahbaz.2004@gmail.com"
+                      className="text-primary hover:text-primary/80 transition-smooth"
+                    >
+                      Send Email →
+                    </a>
                   </div>
                   
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <Label htmlFor="name" className="text-sm font-medium mb-2 block">
-                        Your Name
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Enter your full name"
-                        required
-                        className="w-full"
-                      />
+                  <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Github className="w-6 h-6 text-primary" />
                     </div>
-                    
-                    <div>
-                      <Label htmlFor="email" className="text-sm font-medium mb-2 block">
-                        Email Address
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="your.email@example.com"
-                        required
-                        className="w-full"
-                      />
+                    <div className="flex-1">
+                      <p className="font-semibold text-foreground">GitHub</p>
+                      <p className="text-muted-foreground">github.com/Rana-Hassan7272</p>
                     </div>
-                    
-                    <div>
-                      <Label htmlFor="message" className="text-sm font-medium mb-2 block">
-                        Message
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell me about your project or just say hello..."
-                        required
-                        rows={6}
-                        className="w-full resize-none"
-                      />
-                    </div>
-                    
-                    <Button type="submit" size="lg" className="w-full gap-2">
-                      <Send size={18} />
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Contact Info & Social Links */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-6"
-            >
-              {/* Contact Info */}
-              <Card className="card-gradient shadow-medium">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">Let's Connect</h2>
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">
-                      I'm always open to discussing new opportunities, interesting projects, 
-                      or just having a friendly chat about technology and development.
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Whether you're looking for freelance work, have a full-time opportunity, 
-                      or want to collaborate on an open-source project, I'd love to hear from you!
-                    </p>
+                    <a 
+                      href="https://github.com/Rana-Hassan7272"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 transition-smooth"
+                    >
+                      View Profile →
+                    </a>
                   </div>
                   
-                  <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Mail className="w-5 h-5 text-primary" />
-                      <span className="font-medium">Direct Email</span>
+                  <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Linkedin className="w-6 h-6 text-primary" />
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      john.doe@example.com
-                    </p>
+                    <div className="flex-1">
+                      <p className="font-semibold text-foreground">LinkedIn</p>
+                      <p className="text-muted-foreground">linkedin.com/in/muhammad-hassan-shahbaz-61b524311</p>
+                    </div>
+                    <a 
+                      href="https://www.linkedin.com/in/muhammad-hassan-shahbaz-61b524311/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 transition-smooth"
+                    >
+                      Connect →
+                    </a>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* Social Links */}
-              <Card className="card-gradient shadow-medium">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold mb-6">Find Me Online</h3>
-                  <div className="grid gap-4">
-                    {socialLinks.map((link, index) => (
-                      <motion.a
-                        key={link.name}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                        className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth group"
-                      >
-                        <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-smooth">
-                          <link.icon className={`w-5 h-5 text-muted-foreground ${link.color} transition-smooth`} />
-                        </div>
-                        <div>
-                          <p className="font-medium group-hover:text-primary transition-smooth">
-                            {link.name}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {link.name === 'Email' ? 'john.doe@example.com' : `@johndoe`}
-                          </p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-smooth ml-auto" />
-                      </motion.a>
-                    ))}
+                  <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-foreground">Fiverr</p>
+                      <p className="text-muted-foreground">fiverr.com/users/hassan1830</p>
+                    </div>
+                    <a 
+                      href="https://www.fiverr.com/users/hassan1830"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 transition-smooth"
+                    >
+                      View Profile →
+                    </a>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* Quick Stats */}
-              <Card className="card-gradient shadow-medium">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold mb-6">Quick Stats</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-primary mb-1">24h</div>
-                      <p className="text-xs text-muted-foreground">Response Time</p>
+                  <div className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary/50 transition-smooth">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-accent mb-1">100%</div>
-                      <p className="text-xs text-muted-foreground">Project Success</p>
+                    <div className="flex-1">
+                      <p className="font-semibold text-foreground">Upwork</p>
+                      <p className="text-muted-foreground">upwork.com/freelancers/~01f343f7ce02f99150</p>
                     </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-success mb-1">3+</div>
-                      <p className="text-xs text-muted-foreground">Years Experience</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-warning mb-1">25+</div>
-                      <p className="text-xs text-muted-foreground">Happy Clients</p>
-                    </div>
+                    <a 
+                      href="https://www.upwork.com/freelancers/~01f343f7ce02f99150"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 transition-smooth"
+                    >
+                      View Profile →
+                    </a>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-border">
+                  <h3 className="font-semibold text-foreground mb-6 text-center">Follow Me on Freelance Platforms</h3>
+                  <div className="flex justify-center gap-4">
+                    <a
+                      href="https://www.fiverr.com/users/hassan1830"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center transition-smooth hover:bg-primary/10 hover:text-primary"
+                    >
+                      <img 
+                        src="/fiverr.png" 
+                        alt="Fiverr" 
+                        className="w-6 h-6 object-contain" 
+                      />
+                    </a>
+                    <a
+                      href="https://www.upwork.com/freelancers/~01f343f7ce02f99150"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center transition-smooth hover:bg-primary/10 hover:text-primary"
+                    >
+                      <img 
+                        src="/upwork.svg" 
+                        alt="Upwork" 
+                        className="w-6 h-6 object-contain" 
+                      />
+                    </a>
+                  </div>
+                  <p className="text-center text-sm text-muted-foreground mt-4">
+                    Available for freelance projects and collaborations
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
     </div>

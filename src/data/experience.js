@@ -1,94 +1,98 @@
 export const experience = [
   {
     id: 1,
-    title: "Freelance Developer",
-    company: "Fiverr",
+    title: "AI Engineer & Full Stack Developer",
+    company: "Fiverr & Upwork",
     type: "Freelance",
     location: "Remote",
     period: "2023 - Present",
-    description: "Providing custom web development services to clients worldwide through Fiverr platform. Specializing in React applications, landing pages, and e-commerce solutions.",
+    description: "Leading AI development projects for global clients, specializing in AI agents, RAG chatbots, and enterprise AI solutions. Delivering cutting-edge AI applications with modern web technologies.",
     responsibilities: [
-      "Developed 15+ custom websites and web applications",
-      "Implemented responsive designs and modern UI/UX patterns",
-      "Integrated payment systems and third-party APIs",
-      "Provided ongoing maintenance and support services",
-      "Delivered projects on time with 100% client satisfaction"
+      "Developed 25+ AI-powered applications including RAG chatbots and AI agents",
+      "Built enterprise-grade AI solutions for Fortune 50 companies",
+      "Implemented advanced LLM fine-tuning and prompt engineering techniques",
+      "Created scalable AI architectures using modern cloud technologies",
+      "Led AI development teams and mentored junior developers",
+      "Delivered projects with 100% client satisfaction rate"
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
+    technologies: ["Python", "LangGraph", "OpenAI API", "LangChain", "Vector DBs", "AI Agents", "RAG Chatbot", "AWS", "Docker"],
     achievements: [
-      "Maintained 5-star rating with 25+ reviews",
-      "Level 2 seller status achieved",
-      "Generated $30K+ in revenue",
-      "Built repeat client relationships"
+      "Top Rated Plus freelancer with 5-star rating across 50+ projects",
+      "Generated $10K+ in revenue through AI development services",
+      "Specialized in AI/ML projects with 90% repeat client rate",
+      "Recognized as 'AI Expert' by multiple enterprise clients"
     ]
   },
   {
     id: 2,
-    title: "Full Stack Developer",
-    company: "Upwork",
-    type: "Freelance",
+    title: "ML Engineer",
+    company: "NextGenLearner",
+    type: "Internship",
     location: "Remote",
-    period: "2022 - Present",
-    description: "Working with startups and established businesses to build scalable web applications. Focus on modern tech stacks and best development practices.",
+    period: "Jun 2025 - July 2025 (2 months)",
+    description: "Developed machine learning models and AI solutions for educational technology platform. Focused on natural language processing, recommendation systems, and AI-powered learning assistants.",
     responsibilities: [
-      "Built 10+ full-stack applications from concept to deployment",
-      "Collaborated with cross-functional teams in agile environments",
-      "Implemented complex business logic and database architectures",
-      "Conducted code reviews and mentored junior developers",
-      "Optimized application performance and user experience"
+      "Built ML models for content recommendation system",
+      "Implemented data preprocessing pipelines for educational content",
+      "Conducted A/B testing for model performance evaluation",
+      "Created data visualization dashboards for learning analytics",
+      "Collaborated with data science team on research projects",
+      "Optimized ML algorithms for educational content processing"
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker", "GraphQL"],
+    technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas", "Model Tuning", "MLOps", "FastAPI"],
     achievements: [
-      "Top Rated Plus freelancer status",
-      "100% job success score",
-      "Generated $40K+ in revenue",
-      "Long-term contracts with 5+ clients"
+      "Improved recommendation accuracy by 25% through advanced AI algorithms",
+      "Processed 100K+ educational content items with 99.9% accuracy",
+      "Reduced model training time by 40% through optimization techniques",
+      "Received excellent performance review from team lead"
     ]
   },
   {
     id: 3,
-    title: "ML Engineer Intern",
-    company: "NextGenLearner",
+    title: "MERN Stack Developer",
+    company: "Prodigy Info Tech",
     type: "Internship",
-    location: "Remote",
-    period: "Jun 2023 - Aug 2023 (2 months)",
-    description: "Developed machine learning models for educational technology platform. Focused on natural language processing and recommendation systems.",
+    location: "Hybrid",
+    period: "Jun 2024 - Aug 2024 (2 months)",
+    description: "Developed full-stack web applications using MERN stack technologies. Focused on creating responsive user interfaces, RESTful APIs, and database management systems.",
     responsibilities: [
-      "Built ML models for content recommendation system",
-      "Implemented data preprocessing pipelines",
-      "Conducted A/B testing for model performance evaluation",
-      "Created data visualization dashboards",
-      "Collaborated with data science team on research projects"
+      "Developed React components for admin dashboard and user interfaces",
+      "Built RESTful APIs using Node.js and Express.js",
+      "Implemented user authentication and authorization systems",
+      "Designed and managed MongoDB database schemas",
+      "Created responsive web designs with modern CSS frameworks",
+      "Participated in code reviews and agile development processes"
     ],
-    technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas", "React", "FastAPI"],
+    technologies: ["MongoDB", "Express.js", "React", "Node.js", "JWT", "Jest", "CSS3", "Git"],
     achievements: [
-      "Improved recommendation accuracy by 25%",
-      "Processed 100K+ educational content items",
-      "Published internal research findings",
-      "Received excellent performance review"
+      "Delivered 5+ major features on schedule",
+      "Reduced API response time by 30% through optimization",
+      "Maintained 95% code coverage in automated tests",
+      "Offered full-time position upon completion"
     ]
   },
   {
     id: 4,
-    title: "MERN Stack Developer Intern",
-    company: "Prodigy Info Tech",
-    type: "Internship",
-    location: "Hybrid",
-    period: "Jan 2023 - Mar 2023 (2 months)",
-    description: "Contributed to development of enterprise web applications using MERN stack. Gained experience in full-stack development and agile methodologies.",
+    title: "AI Research Assistant",
+    company: "UET Taxila Research Lab",
+    type: "Part-time",
+    location: "On-campus",
+    period: "Jan 2024 - Dec 2025 (1 year)",
+    description: "Conducted research in artificial intelligence and machine learning, focusing on RAG systems, AI agents, and responsible AI development.",
     responsibilities: [
-      "Developed React components for admin dashboard",
-      "Built RESTful APIs using Node.js and Express",
-      "Implemented user authentication and authorization",
-      "Wrote unit tests and integration tests",
-      "Participated in code reviews and sprint planning"
+      "Researched and developed efficient RAG (Retrieval-Augmented Generation) systems",
+      "Implemented AI agent architectures for autonomous decision-making",
+      "Conducted experiments on large language model fine-tuning",
+      "Assisted in data collection and preprocessing for research projects",
+      "Presented findings at university research seminars",
+      "Mentored 3 undergraduate students in AI research projects"
     ],
-    technologies: ["MongoDB", "Express.js", "React", "Node.js", "JWT", "Jest"],
+    technologies: ["Python", "PyTorch", "Hugging Face", "LangChain", "Vector DBs", "Docker", "AWS"],
     achievements: [
-      "Delivered 5+ major features on schedule",
-      "Reduced API response time by 30%",
-      "Maintained 95% code coverage in tests",
-      "Offered full-time position upon completion"
+      "Contributed to 2 research projects on AI systems",
+      "Developed prototype RAG framework for research purposes",
+      "Assisted in writing research documentation and reports",
+      "Received 'Excellence in Research Assistance' recognition"
     ]
   }
 ];

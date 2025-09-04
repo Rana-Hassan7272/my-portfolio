@@ -57,7 +57,7 @@ const AboutSection = () => {
             
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm a passionate full-stack developer with over 3 years of experience creating 
+                I'm a passionate full-stack developer with over 2 years of experience creating 
                 digital solutions that make a real impact. My journey began with a curiosity 
                 about how websites work, and it has evolved into a deep love for crafting 
                 exceptional user experiences.

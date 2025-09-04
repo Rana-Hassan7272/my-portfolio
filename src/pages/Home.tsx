@@ -2,11 +2,31 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, Linkedin, Download, MapPin, Calendar, GraduationCap, Briefcase, Code } from "lucide-react";
+import { Github, Linkedin, Download, MapPin, Calendar, GraduationCap, Briefcase, Code, ExternalLink } from "lucide-react";
 import { skills } from "@/data/skills";
 import { education } from "@/data/education";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/RESUME.pdf';
+    link.download = 'RESUME.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleViewExperience = () => {
+    navigate('/experience');
+  };
+
+  const handleViewProjects = () => {
+    navigate('/projects');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -21,27 +41,56 @@ const Home = () => {
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
                 Hi, I'm{" "}
-                <span className="text-gradient">John Doe</span>
+                <span className="text-gradient">Muhammad Hassan Shahbaz</span>
               </h1>
               <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
-                Full Stack Developer & ML Engineer
+                Full Stack AI Engineer || GenAI Expert
               </p>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
-                Passionate about creating innovative web solutions and machine learning applications. 
-                I build modern, scalable applications with clean code and cutting-edge technologies.
+                Passionate about creating AI agents, agentic AI, LLM-based applications, RAG chatbots, 
+                NLP solutions, machine learning models, and full AI-powered websites. I build innovative, 
+                scalable AI solutions with cutting-edge technologies and clean code architecture.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="gap-2">
+                <Button size="lg" className="btn-primary gap-2" onClick={handleDownloadResume}>
                   <Download size={20} />
                   Download Resume
                 </Button>
-                <Button variant="outline" size="lg" className="gap-2">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="btn-outline gap-2"
+                  onClick={() => window.open('https://github.com/Rana-Hassan7272', '_blank')}
+                >
                   <Github size={20} />
                   GitHub
                 </Button>
-                <Button variant="outline" size="lg" className="gap-2">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="btn-outline gap-2"
+                  onClick={() => window.open('https://www.linkedin.com/in/muhammad-hassan-shahbaz-61b524311/', '_blank')}
+                >
                   <Linkedin size={20} />
                   LinkedIn
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="btn-outline gap-2"
+                  onClick={() => window.open('https://www.fiverr.com/users/hassan1830', '_blank')}
+                >
+                  <img src="/fiverr.png" alt="Fiverr" className="w-6 h-6" />
+                  Fiverr
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="btn-outline gap-2"
+                  onClick={() => window.open('https://www.upwork.com/freelancers/~01f343f7ce02f99150', '_blank')}
+                >
+                  <img src="/upwork.svg" alt="Upwork" className="w-6 h-6" />
+                  Upwork
                 </Button>
               </div>
             </motion.div>
@@ -56,11 +105,11 @@ const Home = () => {
                 <div className="w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden shadow-large">
                   <img
                     src="/profile.jpg"
-                    alt="John Doe"
+                    alt="Muhammad Hassan Shahbaz"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-accent/20 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse"></div>
               </div>
             </motion.div>
           </div>
@@ -86,7 +135,7 @@ const Home = () => {
           </motion.div>
 
           <div className="grid gap-8 md:gap-12">
-            {skills.slice(0, 3).map((category, categoryIndex) => (
+            {skills.map((category, categoryIndex) => (
               <motion.div
                 key={category.category}
                 initial={{ opacity: 0, y: 20 }}
@@ -98,7 +147,7 @@ const Home = () => {
                   {category.category}
                 </h3>
                 <div className="flex flex-wrap justify-center gap-3">
-                  {category.items.slice(0, 5).map((skill, index) => (
+                  {category.items.map((skill, index) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -109,7 +158,7 @@ const Home = () => {
                     >
                       <Badge
                         variant="secondary"
-                        className="px-4 py-2 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-smooth cursor-pointer"
+                        className="px-4 py-2 text-sm font-medium hover:bg-primary hover:text-white transition-smooth cursor-pointer"
                       >
                         <span className="mr-2">{skill.icon}</span>
                         {skill.name}
@@ -150,7 +199,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="card-gradient shadow-medium hover:shadow-large transition-smooth">
+                <Card className="card-modern">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-primary/10 p-3 rounded-lg">
@@ -193,7 +242,7 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <div className="bg-primary/10 p-4 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Briefcase className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Experience</h3>
@@ -201,7 +250,7 @@ const Home = () => {
                 Freelance developer on Fiverr & Upwork, plus internships at NextGenLearner (ML Engineer) 
                 and Prodigy Info Tech (MERN Stack Developer)
               </p>
-              <Button variant="outline">View Experience</Button>
+              <Button variant="outline" className="btn-outline" onClick={handleViewExperience}>View Experience</Button>
             </motion.div>
 
             {/* Projects Teaser */}
@@ -212,15 +261,15 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <div className="bg-accent/10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Code className="w-8 h-8 text-accent" />
+              <div className="bg-secondary/10 p-4 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Code className="w-8 h-8 text-secondary" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Projects</h3>
               <p className="text-muted-foreground mb-4">
-                5+ completed projects including e-commerce platforms, task management apps, 
-                weather dashboards, and AI-powered applications
+                100+ completed projects including AI agents, RAG chatbots, NLP applications, 
+                machine learning models, e-commerce platforms, and comprehensive AI-powered solutions
               </p>
-              <Button variant="outline">View Projects</Button>
+              <Button variant="outline" className="btn-outline" onClick={handleViewProjects}>View Projects</Button>
             </motion.div>
           </div>
         </div>
