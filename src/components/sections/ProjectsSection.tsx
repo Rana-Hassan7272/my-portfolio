@@ -42,9 +42,12 @@ const ProjectsSection = () => {
                 <div className="relative overflow-hidden">
                   <motion.img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - AI and web development project by Muhammad Hassan Shahbaz`}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-spring"
                     whileHover={{ scale: 1.05 }}
+                    loading="lazy"
+                    width="400"
+                    height="192"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-smooth"></div>
                 </div>
@@ -137,8 +140,11 @@ const ProjectsSection = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - AI and web development project by Muhammad Hassan Shahbaz`}
                     className="w-full h-40 object-cover group-hover:scale-105 transition-spring"
+                    loading="lazy"
+                    width="300"
+                    height="160"
                   />
                 </div>
                 

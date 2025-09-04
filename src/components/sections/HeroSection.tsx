@@ -111,10 +111,13 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl scale-110 animate-glow"></div>
               <motion.img
                 src="/profile.jpg"
-                alt="Alex Johnson"
+                alt="Muhammad Hassan Shahbaz - Full Stack AI Engineer and GenAI Expert professional headshot"
                 className="relative w-80 h-80 rounded-full object-cover shadow-large border-4 border-background"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                loading="eager"
+                width="320"
+                height="320"
               />
             </div>
           </motion.div>
