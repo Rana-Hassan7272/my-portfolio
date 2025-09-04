@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Download, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/components/GoogleAnalytics";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -61,7 +62,10 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:shadow-glow transition-spring group"
-                onClick={() => window.open("#", "_blank")}
+                onClick={() => {
+                  trackEvent('click', 'button', 'download_resume');
+                  window.open("#", "_blank");
+                }}
               >
                 <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
                 Download Resume
@@ -70,7 +74,10 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={scrollToAbout}
+                onClick={() => {
+                  trackEvent('click', 'button', 'learn_more');
+                  scrollToAbout();
+                }}
                 className="border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-spring group"
               >
                 Learn More

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
+import { trackEvent } from "@/components/GoogleAnalytics";
 
 const ProjectsSection = () => {
   const featuredProjects = projects.filter(project => project.featured);
@@ -79,7 +80,10 @@ const ProjectsSection = () => {
                     <Button
                       size="sm"
                       variant="outline"
-                      onClick={() => window.open(project.githubUrl, "_blank")}
+                      onClick={() => {
+                        trackEvent('click', 'project', `${project.title}_github`);
+                        window.open(project.githubUrl, "_blank");
+                      }}
                       className="border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-spring group/btn"
                     >
                       <Github className="w-4 h-4 mr-1 group-hover/btn:rotate-12 transition-transform" />
@@ -88,7 +92,10 @@ const ProjectsSection = () => {
                     
                     <Button
                       size="sm"
-                      onClick={() => window.open(project.liveDemoUrl, "_blank")}
+                      onClick={() => {
+                        trackEvent('click', 'project', `${project.title}_demo`);
+                        window.open(project.liveDemoUrl, "_blank");
+                      }}
                       className="bg-gradient-to-r from-primary to-accent hover:shadow-glow transition-spring group/btn"
                     >
                       <ExternalLink className="w-4 h-4 mr-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
@@ -99,7 +106,10 @@ const ProjectsSection = () => {
                       <Button
                         size="sm"
                         variant="outline"
-                        onClick={() => window.open(project.videoDemoUrl, "_blank")}
+                        onClick={() => {
+                          trackEvent('click', 'project', `${project.title}_video`);
+                          window.open(project.videoDemoUrl, "_blank");
+                        }}
                         className="border-accent/20 hover:border-accent/40 hover:bg-accent/5 transition-spring group/btn"
                       >
                         <Play className="w-4 h-4 mr-1 group-hover/btn:scale-110 transition-transform" />
