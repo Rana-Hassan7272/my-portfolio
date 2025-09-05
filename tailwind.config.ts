@@ -88,8 +88,8 @@ export default {
 					'100%': { opacity: '1', transform: 'translateX(0)' }
 				},
 				'glow': {
-					'0%, 100%': { opacity: '0.8' },
-					'50%': { opacity: '1' }
+					'0%, 100%': { opacity: '0.2' },
+					'50%': { opacity: '0.4' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },

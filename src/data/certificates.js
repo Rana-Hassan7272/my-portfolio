@@ -22,7 +22,7 @@ export const certificates = [
   {
     id: 3,
     title: "Python Programming Certification",
-    issuer: "Python Institute",
+    issuer: "Kaggle",
     date: "2023",
     image: "/projects/python.jpg",
     description: "Comprehensive Python programming certification covering advanced concepts, data structures, and AI/ML libraries.",

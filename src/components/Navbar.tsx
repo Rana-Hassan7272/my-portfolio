@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code, ChevronDown } from "lucide-react";
+import { Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
@@ -17,19 +17,14 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  // Handle scroll effect
+  // Scroll effect for navbar background
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActiveRoute = (href: string) => {
-    return location.pathname === href;
-  };
+  const isActiveRoute = (href: string) => location.pathname === href;
 
   return (
     <motion.nav
@@ -37,9 +32,9 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? "navbar-gradient shadow-navbar border-b border-border/20" 
-          : "bg-background/80 backdrop-blur-md border-b border-border/10"
+        scrolled
+          ? "bg-background/90 backdrop-blur-md shadow-md border-b border-border/20"
+          : "bg-background/70 backdrop-blur-md border-b border-border/10"
       }`}
     >
       <div className="max-w-7xl mx-auto container-padding">
@@ -52,14 +47,17 @@ const Navbar = () => {
               className="flex items-center gap-2 cursor-pointer group"
             >
               <div className="relative">
-                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-medium group-hover:shadow-glow transition-all duration-300">
+                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all">
                   <Code className="w-5 h-5 text-white" />
                 </div>
-                <div className="absolute inset-0 bg-primary rounded-xl opacity-20 blur-sm group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
               <div className="flex flex-col">
-                <span className="logo-text text-lg lg:text-xl font-bold">Muhammad Hassan Shahbaz</span>
-                <span className="text-xs text-muted-foreground font-medium">Full Stack AI Engineer</span>
+                <span className="text-lg lg:text-xl font-bold text-foreground">
+                  Muhammad Hassan Shahbaz
+                </span>
+                <span className="text-xs text-muted-foreground font-medium">
+                  Full Stack AI Engineer
+                </span>
               </div>
             </motion.div>
           </Link>
@@ -75,21 +73,13 @@ const Navbar = () => {
               >
                 <Link
                   to={item.href}
-                  className={`nav-link relative px-4 py-2 rounded-lg transition-all duration-300 ${
-                    isActiveRoute(item.href) 
-                      ? 'text-foreground bg-primary/10 border border-primary/20 font-semibold' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                  className={`relative px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
+                    isActiveRoute(item.href)
+                      ? "text-foreground bg-primary/10 border border-primary/20 font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >
                   {item.name}
-                  {isActiveRoute(item.href) && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 bg-primary/5 rounded-lg border border-primary/20"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
                 </Link>
               </motion.div>
             ))}
@@ -101,7 +91,7 @@ const Navbar = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 relative"
+              className="p-2"
             >
               <motion.div
                 animate={isOpen ? "open" : "closed"}
@@ -110,21 +100,21 @@ const Navbar = () => {
                 <motion.span
                   variants={{
                     closed: { rotate: 0, y: 0 },
-                    open: { rotate: 45, y: 6 }
+                    open: { rotate: 45, y: 6 },
                   }}
                   className="w-5 h-0.5 bg-foreground rounded-full"
                 />
                 <motion.span
                   variants={{
                     closed: { opacity: 1 },
-                    open: { opacity: 0 }
+                    open: { opacity: 0 },
                   }}
                   className="w-5 h-0.5 bg-foreground rounded-full mt-1"
                 />
                 <motion.span
                   variants={{
                     closed: { rotate: 0, y: 0 },
-                    open: { rotate: -45, y: -6 }
+                    open: { rotate: -45, y: -6 },
                   }}
                   className="w-5 h-0.5 bg-foreground rounded-full mt-1"
                 />
@@ -143,7 +133,7 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-6 space-y-2 bg-background/95 backdrop-blur-md border-t border-border/20 rounded-b-2xl shadow-large">
+              <div className="py-6 space-y-2 bg-background/95 backdrop-blur-md border-t border-border/20 rounded-b-2xl shadow-lg">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -155,9 +145,9 @@ const Navbar = () => {
                       to={item.href}
                       onClick={() => setIsOpen(false)}
                       className={`block w-full text-left px-6 py-3 rounded-lg transition-all duration-300 ${
-                        isActiveRoute(item.href) 
-                          ? 'text-foreground bg-primary/10 border border-primary/20 font-semibold' 
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                        isActiveRoute(item.href)
+                          ? "text-foreground bg-primary/10 border border-primary/20 font-semibold"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                       }`}
                     >
                       {item.name}
@@ -174,3 +164,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

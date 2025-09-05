@@ -107,27 +107,6 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50, scale: 0.8 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl scale-110 animate-glow"></div>
-              <motion.img
-                src="/profile.jpg"
-                alt="Muhammad Hassan Shahbaz - Full Stack AI Engineer and GenAI Expert professional headshot"
-                className="relative w-80 h-80 rounded-full object-cover shadow-large border-4 border-background"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                loading="eager"
-                width="320"
-                height="320"
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
 
