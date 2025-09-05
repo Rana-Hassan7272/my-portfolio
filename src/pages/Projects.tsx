@@ -58,57 +58,62 @@ const Projects = () => {
           </motion.div>
 
           {/* Top Projects */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
             {topProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50 group-hover:from-accent/5 group-hover:to-primary/5 overflow-hidden">
-                  <div className="relative overflow-hidden">
+                <Card className="h-full border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 bg-white overflow-hidden">
+                  {/* Project Image */}
+                  <div className="relative h-48 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     {project.featured && (
                       <div className="absolute top-3 right-3">
-                        <Badge className="bg-primary/90 text-white flex items-center gap-1 group-hover:scale-110 transition-transform duration-300">
-                          <Star size={12} fill="currentColor" className="group-hover:rotate-12 transition-transform duration-300" />
+                        <Badge className="bg-blue-600 text-white text-xs">
+                          <Star size={12} className="mr-1" />
                           Featured
                         </Badge>
                       </div>
                     )}
                   </div>
                   
-                  <CardContent className="p-6 h-full flex flex-col">
-                    <h3 className="font-bold text-xl mb-3 group-hover:text-accent transition-colors duration-300">
+                  {/* Card Content */}
+                  <CardContent className="p-6">
+                    {/* Title */}
+                    <h3 className="font-bold text-lg mb-2 text-gray-800">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-3 group-hover:text-foreground transition-colors duration-300 flex-1">
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                       {project.description}
                     </p>
                     
+                    {/* Tech Stack */}
                     <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1">
                         {project.techStack.slice(0, 4).map((tech, techIndex) => (
                           <Badge 
                             key={techIndex} 
-                            variant="outline" 
-                            className="text-xs border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer"
+                            variant="secondary"
+                            className="text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
                           >
                             {tech}
                           </Badge>
                         ))}
                         {project.techStack.length > 4 && (
                           <Badge 
-                            variant="outline" 
-                            className="text-xs cursor-pointer hover:bg-primary/10 hover:text-primary hover:scale-105 transition-all duration-300"
+                            variant="outline"
+                            className="text-xs text-gray-500 border-gray-300 cursor-pointer hover:bg-gray-50 hover:border-gray-400 transition-colors"
                             onClick={() => toggleSkills(project.id)}
                           >
                             {expandedSkills[project.id] ? 'Show Less' : `+${project.techStack.length - 4} more`}
@@ -120,13 +125,13 @@ const Projects = () => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="mt-2 flex flex-wrap gap-2"
+                          className="mt-2 flex flex-wrap gap-1"
                         >
                           {project.techStack.slice(4).map((tech, techIndex) => (
                             <Badge 
                               key={techIndex + 4} 
-                              variant="outline" 
-                              className="text-xs border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/50 hover:scale-105 transition-all duration-300 cursor-pointer"
+                              variant="secondary"
+                              className="text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
                             >
                               {tech}
                             </Badge>
@@ -135,24 +140,25 @@ const Projects = () => {
                       )}
                     </div>
                     
+                    {/* Action Buttons */}
                     <div className="flex gap-2">
                       <Button 
                         size="sm" 
-                        variant="outline" 
-                        className="flex-1 group-hover:bg-accent group-hover:text-white group-hover:scale-105 transition-all duration-300"
+                        variant="outline"
+                        className="flex-1 bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
                         onClick={() => handleGitHubClick(project.githubUrl)}
                       >
-                        <Github size={14} className="mr-1 group-hover:rotate-12 transition-transform duration-300" />
+                        <Github size={14} className="mr-2" />
                         Code
                       </Button>
                       {project.videoDemoUrl && (
                         <Button 
                           size="sm" 
-                          variant="outline" 
-                          className="flex-1 group-hover:bg-primary group-hover:text-white group-hover:scale-105 transition-all duration-300"
+                          variant="outline"
+                          className="flex-1 bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
                           onClick={() => handleVideoDemoClick(project.videoDemoUrl!)}
                         >
-                          <Play size={14} className="group-hover:scale-110 transition-transform duration-300" />
+                          <Play size={14} className="mr-2" />
                           Demo
                         </Button>
                       )}
