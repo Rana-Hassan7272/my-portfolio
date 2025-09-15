@@ -18,8 +18,8 @@ const Projects = () => {
     "Crypto Trading Bot", 
     "EMF Tracker",
     "Movie Recommender System",
-    "Resume Analyzer AI",
     "Airbnb Clone",
+    "Resume Analyzer AI",
     "Road Sign Classifier",
     "Churn Prediction"
   ];
