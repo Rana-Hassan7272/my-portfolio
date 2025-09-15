@@ -17,7 +17,7 @@ const Projects = () => {
     "Email Spam Collector",
     "Crypto Trading Bot", 
     "EMF Tracker",
-    "Food Delivery App",
+    "Movie Recommender System",
     "Resume Analyzer AI",
     "Airbnb Clone",
     "Road Sign Classifier",
